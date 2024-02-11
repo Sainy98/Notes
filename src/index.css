@@ -30,7 +30,7 @@ textarea {
   border: 5px solid green;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:500px) {
   textarea {
     background-color: #ffdfc3;
     width: 95%;
@@ -49,7 +49,7 @@ textarea {
   border-radius: 20px;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:500px) {
   .add-note {
     height: 50px;
     width: 200px;
@@ -66,9 +66,12 @@ textarea {
 
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:500px) {
   .ul {
     display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
   }
 }
 
@@ -99,18 +102,13 @@ textarea {
   width: 200px;
   margin: 5px;
   overflow: hidden;
-  text-align: left;
   border-radius: 25px;
   height: 250px;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:500px) {
   .ListItem {
-    margin: 5px;
-    position: relative;
-    margin-right: 10%;
-    margin-left: 10%;
-    width: 70%;
+    width: 90%;
     height: 250px;
 
   }
@@ -122,6 +120,13 @@ textarea {
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: -3%; */
+}
+
+@media only screen and (max-width:500px) {
+  .note-list {
+    margin: 0 10%;
+
+  }
 }
 
 .note-preview {
@@ -149,7 +154,7 @@ textarea {
   cursor: pointer;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:500px) {
   .note-preview {
     height: 100%;
     width: 80%;
