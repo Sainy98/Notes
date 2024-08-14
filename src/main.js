@@ -4,6 +4,7 @@ const NoteWeb = () => {
     const [notes, setNotes] = useState([]);
     const [currentNote, setCurrentNote] = useState('');
     const [previewNote, setPreviewNote] = useState('');
+    const [clicked, setClicked] = useState('Add note'); //btn name
 
     useEffect(() => {
         // Load notes from local storage on component mount
@@ -16,11 +17,24 @@ const NoteWeb = () => {
         localStorage.setItem('notes', JSON.stringify(notes));
     }, [notes]);
 
+    const noteAdded = () => {
+        setClicked('Add Note');
+        // alert('mouse enetered');
+    };
+
     const addNote = () => {
         if (currentNote.trim() !== '') {
-            setNotes([...notes, currentNote]);
+            const newNotes = [...notes];
+            // Add the new note to the copy
+            newNotes.push(currentNote);
+            // Update the state with the new array
+            setNotes(newNotes);
             setCurrentNote('');
+            // Set the button text
+
+            setClicked('Note Added');
         }
+
     };
 
     const close = () => {
@@ -28,10 +42,21 @@ const NoteWeb = () => {
     };
 
     const deleteNote = (index) => {
+        const isConfirmed = window.confirm("Are you sure you want delete this note?")
+        if (isConfirmed) {
+            const updatedNotes = [...notes];
+            updatedNotes.splice(index, 1);
+            setNotes(updatedNotes);
+            setPreviewNote('');
+        }
+    };
+
+    const deleteFromEdit = (index) => {
         const updatedNotes = [...notes];
         updatedNotes.splice(index, 1);
         setNotes(updatedNotes);
-    };
+        setPreviewNote('');
+    }
 
     const previewNoteHandler = (note) => {
         setPreviewNote(note);
@@ -41,21 +66,22 @@ const NoteWeb = () => {
 
     const editNote = (index) => {
         setCurrentNote(notes[index]);
-        deleteNote(index);
+        deleteFromEdit(index);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
         <div className="note" >
 
-            <div className="note-input">
+            <div className="note-input" >
                 <textarea
                     placeholder="Write your note here..."
                     value={currentNote}
+                    onClick={noteAdded}
                     onChange={(e) => setCurrentNote(e.target.value)}
                 ></textarea>
                 <br />
-                <button className='add-note' onClick={addNote}>Add Note</button>
+                <button className='add-note' onClick={addNote}>{clicked}</button>
             </div>
             <div className="note-list" >
                 <h2> Saved Notes</h2>
@@ -64,6 +90,7 @@ const NoteWeb = () => {
                         <li key={index} className='ListItem' >
 
                             <h3>{(note.charAt(0).toUpperCase() + note.slice(1)).substring(0, 10) + "..."}</h3>
+                            <hr></hr>
                             <p>{note.substring(0, 90)}</p>
                             <br />
 
@@ -86,12 +113,11 @@ const NoteWeb = () => {
             </div>
             {previewNote && (
                 <div className="note-preview">
-                    <button onClick={close} className='close'>
-                        <i className="fas fa-times"></i>
-                    </button>
-                    <h2>Note Preview</h2>
-                    <p>{previewNote}</p>
 
+                    <i onClick={close} className="fas fa-times close" ></i>
+
+                    <h2>Note Preview</h2>
+                    <p className='preview-p'>{previewNote}</p>
                 </div>
             )}
         </div>
