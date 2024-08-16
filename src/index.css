@@ -17,6 +17,7 @@ body {
   --tertiaryColor: #03a809;
 }
 
+
 nav {
   text-align: center;
   background-color: var(--secondaryColor);
@@ -26,18 +27,23 @@ nav {
 .note-input {
   text-align: center;
 
+
 }
 
+.ql-toolbar.ql-snow {
+  background-color: var(--primaryColor);
+  box-shadow: 0px 0px 6px;
+}
 
-textarea {
-  width: 50%;
-  height: 50%;
+.textarea {
+  width: 90%;
+  height: fit-content;
+  min-height: 50%;
   border-radius: 10px;
   padding: 10px;
   border-radius: 4px;
   box-shadow: inset 0px 0px 5px 3px gray;
-  font-size: 17px;
-  font-weight: 700;
+  margin: auto;
 
 }
 
@@ -132,18 +138,16 @@ textarea {
   position: relative;
   background-color: var(--primaryColor);
   box-shadow: 2px 2px 10px black;
-  width: 200px;
+  width: 270px;
+  height: 290px;
   margin: 5px;
   overflow: hidden;
   border-radius: 5px;
-  /* height: 250px;
-   */
-  height: 200px;
+
 }
 
 .ListItem:hover {
-  width: 200px;
-  height: 210px;
+  height: 295px;
   background-color: var(--primaryColor);
   cursor: pointer;
 }
@@ -203,13 +207,12 @@ textarea {
 
 }
 
-.note-preview-container h2 {
+.note-preview-container>h2 {
   color: #000;
   margin: unset;
   background-color: #FC5130;
   position: sticky;
-
-
+  text-align: center;
 
 }
 
@@ -230,7 +233,7 @@ textarea {
 @media only screen and (max-width:700px) {
   .close {
     width: 100px;
-    translate: 0px -30px;
+    translate: 0px -93px;
   }
 
   .note-preview-container {
@@ -241,23 +244,4 @@ textarea {
 
 .btn-container:hover {
   transition: 2s;
-}
-
-
-h2 {
-  color: aliceblue;
-  text-align: center;
-
-}
-
-h3 {
-  font-size: 22px;
-  padding: unset;
-  margin: inherit;
-
-}
-
-p {
-  padding: 0 12px;
-
 }
