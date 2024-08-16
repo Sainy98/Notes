@@ -46,7 +46,7 @@ textarea {
 
     width: 95%;
     height: 75%;
-    font-size: 25px;
+    font-size: 20px;
 
 
   }
@@ -179,17 +179,7 @@ textarea {
 
 
 .note-preview {
-  /* background-color: aliceblue;
-  border: 2px solid;
-  text-align: center;
-  position: absolute;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -60%);
-  padding: 20px;
-  width: 50%;
-  height: fit-content;
-  border-radius: 21px; */
+
   width: 100%;
   height: 100%;
   background-color: #1b1b1bd4;
