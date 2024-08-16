@@ -35,6 +35,10 @@ nav {
   box-shadow: 0px 0px 6px;
 }
 
+.ql-editor {
+  font-size: 18px;
+}
+
 .textarea {
   width: 90%;
   height: fit-content;
@@ -47,16 +51,7 @@ nav {
 
 }
 
-@media only screen and (max-width:700px) {
-  textarea {
-
-    width: 95%;
-    height: 75%;
-    font-size: 20px;
-
-
-  }
-}
+@media only screen and (max-width:700px) {}
 
 .add-note {
   padding: 15px 25px;
