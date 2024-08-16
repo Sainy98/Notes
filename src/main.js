@@ -112,12 +112,13 @@ const NoteWeb = () => {
 
             </div>
             {previewNote && (
-                <div className="note-preview">
+                <div className="note-preview" >
+                    <div className='note-preview-container'>
+                        <h2>Note Preview</h2>
+                        <p className='preview-p'>{previewNote}</p>
 
-                    <i onClick={close} className="fas fa-times close" ></i>
-
-                    <h2>Note Preview</h2>
-                    <p className='preview-p'>{previewNote}</p>
+                    </div>
+                    <button onClick={close} className='close'>Close</button>
                 </div>
             )}
         </div>
